@@ -25,12 +25,6 @@ export default async function handler(req, res) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
-generationConfig: {
-  temperature: 0.7,
-},
-systemInstruction: {
-  parts: [{ text: "Always include scores in this exact format:\nQuality: [number]\nPerformance: [number]\nSecurity: [number]\nReadability: [number]\nUse numbers between 0-100." }]
-},
         }),
       }
     );
