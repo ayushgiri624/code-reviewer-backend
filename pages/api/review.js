@@ -32,7 +32,8 @@ export default async function handler(req, res) {
     });
 
     const data = await response.json();
-    const text = data.choices?.[0]?.message?.content || "No response received.";
+    console.log("Groq response:", JSON.stringify(data));
+const text = data.choices?.[0]?.message?.content || data.error?.message || "No response received.";
 
     return res.status(200).json({
       content: [{ text }],
