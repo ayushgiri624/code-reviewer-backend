@@ -30,7 +30,10 @@ export default async function handler(req, res) {
     );
 
     const data = await response.json();
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "No response received.";
+    console.log("Gemini raw response:", JSON.stringify(data));
+const text = data.candidates?.[0]?.content?.parts?.[0]?.text || 
+             data.error?.message || 
+             "No response received.";
 
     return res.status(200).json({
       content: [{ text }],
