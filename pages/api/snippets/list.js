@@ -1,5 +1,5 @@
-import { connectDB } from "../../lib/mongodb";
-import Snippet from "../../models/Snippet";
+import { connectDB } from "../../../lib/mongodb";
+import Snippet from "../../../models/Snippet";
 
 export default async function handler(req, res) {
   if (req.method !== "GET") {
